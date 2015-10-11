@@ -10,7 +10,7 @@ namespace Craigslist.Domain.Entities
         public int Id { get; set; }
 
 		[ForeignKey("ParentCategory")]
-        public int ParentId { get; set; }
+        public int? ParentId { get; set; }
 
         [Required]
         [StringLength(100)]

@@ -1,13 +1,17 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 using System.Web.Routing;
 using Craigslist.Business;
 using Craigslist.Domain.Entities;
+using Craigslist.Models.Listings;
 
 namespace Craigslist.Controllers
 {
     public class ListingController : Controller
     {
-		private readonly ListingsManager manager = new ListingsManager();
+		private readonly ListingsManager listingsManager = new ListingsManager();
+		private readonly LookupManager lookupManager = new LookupManager();
 
 	    public ViewResult List()
 	    {
@@ -16,15 +20,25 @@ namespace Craigslist.Controllers
 
 	    public ViewResult Publish()
 	    {
-		    return View();
+		    var allCategories = lookupManager.GetAllCategories().ToList();
+
+		    return View(new ListingPublishingViewModel
+		    {
+			    Categories = allCategories.Select(catetory => new SelectListItem
+			    {
+				    Value = catetory.Id.ToString(),
+				    Disabled = allCategories.Any(c => c.ParentId == catetory.Id),
+				    Text = catetory.Name
+			    }).ToList()
+		    });
 	    }
 
-		[HttpPost]
-	    public ActionResult Publish(Listing listing)
+	    [HttpPost]
+	    public ActionResult Publish(ListingPublishingViewModel model)
 	    {
 		    if (ModelState.IsValid)
 		    {
-			    manager.PublishListing(listing);
+			    listingsManager.PublishListing(model.Listing);
 				return new RedirectToRouteResult(new RouteValueDictionary());
 		    }
 
