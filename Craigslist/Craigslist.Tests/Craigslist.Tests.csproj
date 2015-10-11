@@ -51,9 +51,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Craigslist\Craigslist.csproj">
+    <ProjectReference Include="..\Craigslist\Craigslist.Ui.csproj">
       <Project>{3FFCE5A5-E099-4600-A4BB-715251B84286}</Project>
-      <Name>Craigslist</Name>
+      <Name>Craigslist.Ui</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Craigslist", "Craigslist\Craigslist.csproj", "{3FFCE5A5-E099-4600-A4BB-715251B84286}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Craigslist.Ui", "Craigslist\Craigslist.Ui.csproj", "{3FFCE5A5-E099-4600-A4BB-715251B84286}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Craigslist.Tests", "Craigslist.Tests\Craigslist.Tests.csproj", "{DE0E7CFE-D4BC-47FC-BD93-BFE5432EFB72}"
 EndProject
