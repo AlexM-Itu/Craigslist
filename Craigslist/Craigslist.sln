@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Craigslist.Ui", "Craigslist
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Craigslist.Tests", "Craigslist.Tests\Craigslist.Tests.csproj", "{DE0E7CFE-D4BC-47FC-BD93-BFE5432EFB72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Craigslist.Domain", "Craigslist.Domain\Craigslist.Domain.csproj", "{2C9C6173-9C74-43C7-9E64-0548CAB5AE87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Craigslist.Selenium", "Craigslist.Selenium\Craigslist.Selenium.csproj", "{66D1F3AE-C6D5-4BCE-9EDD-35B8CA9155B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{DE0E7CFE-D4BC-47FC-BD93-BFE5432EFB72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE0E7CFE-D4BC-47FC-BD93-BFE5432EFB72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE0E7CFE-D4BC-47FC-BD93-BFE5432EFB72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C9C6173-9C74-43C7-9E64-0548CAB5AE87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C9C6173-9C74-43C7-9E64-0548CAB5AE87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C9C6173-9C74-43C7-9E64-0548CAB5AE87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C9C6173-9C74-43C7-9E64-0548CAB5AE87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66D1F3AE-C6D5-4BCE-9EDD-35B8CA9155B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66D1F3AE-C6D5-4BCE-9EDD-35B8CA9155B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66D1F3AE-C6D5-4BCE-9EDD-35B8CA9155B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66D1F3AE-C6D5-4BCE-9EDD-35B8CA9155B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
