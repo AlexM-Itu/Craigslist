@@ -1,1 +1,17 @@
-﻿
+﻿@model Craigslist.Domain.Entities.Listing
+
+@using (Html.BeginForm("Publish")) {
+	<div id="contact-datails">
+		<label>Your contact information:</label>
+		@Html.TextBoxFor(i => i.Contact.FirstName, new {placeholder = "First Name"})
+		@Html.TextBoxFor(i => i.Contact.LastName, new {placeholder = "Last Name"})
+		@Html.TextBoxFor(i => i.Contact.Email, new {placeholder = "Email", type = "email"})
+		@Html.TextBoxFor(i => i.Contact.Phone, new {placeholder = "Phone", pattern = "(000) 000-0000"})
+	</div>
+	<label>Title:</label>
+	@Html.TextBoxFor(i=> i.Header);
+	<label>Category:</label>
+	<!-- Category-->
+	@Html.TextAreaFor(i=> i.Body);
+	<button type="submit">Publish</button>
+}
