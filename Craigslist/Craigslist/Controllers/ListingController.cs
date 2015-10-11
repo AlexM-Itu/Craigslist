@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 using Craigslist.Business;
+using Craigslist.Domain.Entities;
 using Craigslist.Models.Listings;
 
 namespace Craigslist.Controllers
@@ -26,7 +27,7 @@ namespace Craigslist.Controllers
 			    {
 				    Value = catetory.Id.ToString(),
 				    Disabled = allCategories.Any(c => c.ParentId == catetory.Id),
-				    Text = catetory.Name
+				    Text = lookupManager.ComposeCategoryName(catetory)
 			    }).ToList()
 		    });
 	    }

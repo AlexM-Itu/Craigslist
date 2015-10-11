@@ -13,6 +13,20 @@ namespace Craigslist.Business
 			{
 				return domain.Categories.ToList();
 			}
-		} 
+		}
+
+		public string ComposeCategoryName(Category catetory)
+		{
+			string name = string.Empty;
+			Category itr = catetory;
+		    
+			while (itr.ParentId !=null)
+			{
+				name += " ";
+				itr = itr.ParentCategory;
+			}
+
+			return string.Format("{0} {1}", name, catetory.Name);
+		}
 	}
 }
