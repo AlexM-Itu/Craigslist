@@ -1,0 +1,10 @@
+﻿@model List<SelectListItem>
+
+<div id="navigation-top-bar">
+	<select id="category-selector">
+		@foreach (var item in @Model)
+		{
+			<option class="category-selector-item" value="@item.Value">@item.Text</option>
+		}
+	</select>
+</div>
