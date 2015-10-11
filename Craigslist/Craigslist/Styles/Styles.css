@@ -1,0 +1,16 @@
+﻿#publish-ad-contact-datails >*, #publish-ad-topbar, #publish-ad-body{
+		display: block;
+}
+
+#publish-ad-header {
+	width: 2000px;
+}
+
+#publish-ad-body {
+	width: 2000px;
+	height: 800px;
+}
+
+#publish-ad-validation-summary {
+	color: #f00;
+}
