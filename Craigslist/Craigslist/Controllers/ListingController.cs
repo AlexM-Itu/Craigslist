@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Craigslist.Business;
-using Craigslist.Domain.Entities;
 using Craigslist.Models.Listings;
 
 namespace Craigslist.Controllers
