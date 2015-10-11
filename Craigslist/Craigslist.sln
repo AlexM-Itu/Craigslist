@@ -4,14 +4,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Craigslist.Ui", "Craigslist\Craigslist.Ui.csproj", "{3FFCE5A5-E099-4600-A4BB-715251B84286}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2C9C6173-9C74-43C7-9E64-0548CAB5AE87} = {2C9C6173-9C74-43C7-9E64-0548CAB5AE87}
+		{4A6F10E9-83F1-4E95-97AD-B2688BEC0ED2} = {4A6F10E9-83F1-4E95-97AD-B2688BEC0ED2}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Craigslist.Tests", "Craigslist.Tests\Craigslist.Tests.csproj", "{DE0E7CFE-D4BC-47FC-BD93-BFE5432EFB72}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2C9C6173-9C74-43C7-9E64-0548CAB5AE87} = {2C9C6173-9C74-43C7-9E64-0548CAB5AE87}
+		{4A6F10E9-83F1-4E95-97AD-B2688BEC0ED2} = {4A6F10E9-83F1-4E95-97AD-B2688BEC0ED2}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Craigslist.Domain", "Craigslist.Domain\Craigslist.Domain.csproj", "{2C9C6173-9C74-43C7-9E64-0548CAB5AE87}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Craigslist.Selenium", "Craigslist.Selenium\Craigslist.Selenium.csproj", "{66D1F3AE-C6D5-4BCE-9EDD-35B8CA9155B5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Craigslist.Business", "Craigslist.Business\Craigslist.Business.csproj", "{4A6F10E9-83F1-4E95-97AD-B2688BEC0ED2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2C9C6173-9C74-43C7-9E64-0548CAB5AE87} = {2C9C6173-9C74-43C7-9E64-0548CAB5AE87}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
