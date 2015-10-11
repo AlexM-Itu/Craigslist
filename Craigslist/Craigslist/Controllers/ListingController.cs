@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using System.Web.Routing;
 using Craigslist.Business;
 using Craigslist.Models.Listings;
 
@@ -11,9 +10,9 @@ namespace Craigslist.Controllers
 		private readonly ListingsManager listingsManager = new ListingsManager();
 		private readonly LookupManager lookupManager = new LookupManager();
 
-	    public ViewResult List()
+	    public ViewResult List(string category = null)
 	    {
-		    return View();
+		    return View(listingsManager.GetListingsByCategory(category));
 	    }
 
 	    public ViewResult Publish()
