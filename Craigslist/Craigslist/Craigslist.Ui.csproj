@@ -111,6 +111,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Views\Listing\Publish.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -121,6 +122,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Craigslist.Business\Craigslist.Business.csproj">
+      <Project>{4a6f10e9-83f1-4e95-97ad-b2688bec0ed2}</Project>
+      <Name>Craigslist.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Craigslist.Domain\Craigslist.Domain.csproj">
+      <Project>{2c9c6173-9c74-43c7-9e64-0548cab5ae87}</Project>
+      <Name>Craigslist.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
