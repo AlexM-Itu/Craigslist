@@ -1,2 +1,9 @@
-﻿<p>This is just a dummy view just to create and test out the general layout</p>
-<p>The real view will be here later</p>
+﻿@model List<Craigslist.Domain.Entities.Listing>
+
+<div id="list-container">
+	@foreach (var item in @Model)
+	{
+		@Html.Partial("ListItem", item)
+	}
+	<!-- add pagination helper or partial here-->
+</div>
