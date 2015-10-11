@@ -2,7 +2,6 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 using Craigslist.Business;
-using Craigslist.Domain.Entities;
 using Craigslist.Models.Listings;
 
 namespace Craigslist.Controllers
@@ -38,7 +37,7 @@ namespace Craigslist.Controllers
 		    if (ModelState.IsValid)
 		    {
 			    listingsManager.PublishListing(model.Listing);
-				return new RedirectToRouteResult(new RouteValueDictionary());
+			    return RedirectToAction("List");
 		    }
 
 			return View();
