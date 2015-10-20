@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using Craigslist.Business;
 using Craigslist.Models.Listings;
@@ -17,17 +18,24 @@ namespace Craigslist.Controllers
 
 	    public ViewResult Publish()
 	    {
-		    var allCategories = lookupManager.GetAllCategories().ToList();
-
+		    var categories = RetrieveAllCategories();
 		    return View(new ListingPublishingViewModel
 		    {
-			    Categories = allCategories.Select(catetory => new SelectListItem
-			    {
-				    Value = catetory.Id.ToString(),
-				    Disabled = allCategories.Any(c => c.ParentId == catetory.Id),
-				    Text = lookupManager.ComposeCategoryName(catetory)
-			    }).ToList()
+			    Categories = categories
 		    });
+	    }
+
+	    private List<SelectListItem> RetrieveAllCategories()
+	    {
+		    var allCategories = lookupManager.GetAllCategories().ToList();
+
+		    var categories = allCategories.Select(catetory => new SelectListItem
+		    {
+			    Value = catetory.Id.ToString(),
+			    Disabled = allCategories.Any(c => c.ParentId == catetory.Id),
+			    Text = lookupManager.ComposeCategoryName(catetory)
+		    }).ToList();
+		    return categories;
 	    }
 
 	    [HttpPost]
@@ -39,7 +47,8 @@ namespace Craigslist.Controllers
 			    return RedirectToAction("List");
 		    }
 
-			return View();
+		    model.Categories = RetrieveAllCategories();
+			return View(model);
 	    }
     }
 }

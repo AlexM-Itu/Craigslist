@@ -20,7 +20,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("ITU Craigslist", "List", "Listing", null, new { @class = "navbar-brand" })
-	            <button type="button">Create a posting!</button>
+	            <button type="button" onclick="document.location = '@Url.Action("Publish", "Listing")'">Create a posting!</button>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-	@Html.Action("Index", "Navigation")
+	@*@Html.Action("Index", "Navigation")*@
     <div class="container body-content">
         @RenderBody()
         <hr />

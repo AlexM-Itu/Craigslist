@@ -21,7 +21,9 @@ namespace Craigslist.Domain.Entities
         [Required]
         public string Body { get; set; }
 
-       public DateTime? Updated { get; set; }
+		public string Price { get; set; }
+
+		public DateTime? Updated { get; set; }
 
         public virtual Category Category { get; set; }
 
