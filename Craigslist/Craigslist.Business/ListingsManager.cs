@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using Craigslist.Domain;
 using Craigslist.Domain.Entities;
@@ -23,6 +24,8 @@ namespace Craigslist.Business
 				return domain
 					.Listings
 					.Where(listing => category == null || listing.Category.Name == category)
+					.Include(l => l.Category)
+					.Include(l => l.Contact)
 					.ToList();
 			}
 		}
