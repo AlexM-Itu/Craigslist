@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using Craigslist.Business;
+using Craigslist.Helpers;
 using Craigslist.Models.Listings;
 
 namespace Craigslist.Controllers
@@ -10,6 +11,7 @@ namespace Craigslist.Controllers
     {
 		private readonly ListingsManager listingsManager = new ListingsManager();
 		private readonly LookupManager lookupManager = new LookupManager();
+		private readonly CategoriesHelper categoriesHelper = new CategoriesHelper();
 
 	    public ViewResult List(string category = null)
 	    {
@@ -28,15 +30,10 @@ namespace Craigslist.Controllers
 	    private List<SelectListItem> RetrieveAllCategories()
 	    {
 		    var allCategories = lookupManager.GetAllCategories().ToList();
-
-		    var categories = allCategories.Select(catetory => new SelectListItem
-		    {
-			    Value = catetory.Id.ToString(),
-			    Disabled = allCategories.Any(c => c.ParentId == catetory.Id),
-			    Text = lookupManager.ComposeCategoryName(catetory)
-		    }).ToList();
-		    return categories;
+		    return categoriesHelper.GetCategoriesListItems(allCategories);
 	    }
+
+	  
 
 	    [HttpPost]
 	    public ActionResult Publish(ListingPublishingViewModel model)

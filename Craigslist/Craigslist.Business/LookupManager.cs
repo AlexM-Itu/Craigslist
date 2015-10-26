@@ -11,22 +11,15 @@ namespace Craigslist.Business
 		{
 			using (var domain = new CraigslistDomain())
 			{
-				return domain.Categories.ToList();
-			}
-		}
+				var categories = domain.Categories.ToList();
 
-		public string ComposeCategoryName(Category catetory)
-		{
-			string name = string.Empty;
-			Category itr = catetory;
-		    
-			while (itr.ParentId !=null)
-			{
-				name += " ";
-				itr = itr.ParentCategory;
-			}
+				foreach (var category in categories)
+				{
+					category.SubCategories = categories.Where(cat => cat.ParentId == category.Id).ToList();
+				}
 
-			return string.Format("{0} {1}", name, catetory.Name);
+				return categories;
+			}
 		}
 	}
 }

@@ -20,9 +20,12 @@ namespace Craigslist.Domain.Entities
 
 		public Category ParentCategory { get; set; }
 
+		public List<Category> SubCategories { get; set; }
+
 		public Category()
 		{
 			Listings = new HashSet<Listing>();
+			SubCategories = new List<Category>();
 		}
     }
 }
