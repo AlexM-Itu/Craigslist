@@ -1,6 +1,7 @@
 ﻿@model Craigslist.Domain.Entities.Listing
 
 <div class="list-item">
-	<span>@Model.Category.Name</span>
-	<span>@Model.Header</span>
+	<span class="item-category-name">@Model.Category.Name</span>
+	<span class="item-header">@Model.Header</span>
+	<span class="item-price">@Model.Price.ToString("c")</span>
 </div>

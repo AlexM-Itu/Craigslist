@@ -14,3 +14,15 @@
 #publish-ad-validation-summary {
 	color: #f00;
 }
+
+#list-container {
+	margin-top: 35px;
+}
+
+.list-item + .list-item{
+	border-top: 1px solid #808080;
+}
+
+.item-header, .item-price {
+	margin-left: 20px;
+}
