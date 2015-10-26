@@ -111,6 +111,7 @@
     </Compile>
     <Compile Include="Helpers\CategoriesHelper.cs" />
     <Compile Include="Models\Listings\ListingPublishingViewModel.cs" />
+    <Compile Include="Models\Navigation\NavigationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

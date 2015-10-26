@@ -1,10 +1,13 @@
-﻿@model List<SelectListItem>
+﻿@model Craigslist.Models.Navigation.NavigationViewModel
+@{
+	Layout = null;
+}
 
 <div id="navigation-top-bar">
-	<select id="category-selector">
-		@foreach (var item in @Model)
-		{
-			<option class="category-selector-item" value="@item.Value">@item.Text</option>
-		}
-	</select>
+	@using (Html.BeginForm("AppySelection", "Navigation"))
+	{
+		@Html.DropDownListFor(i => i.SelectedCategoty, @Model.Categories)
+		<button type="submit">Search</button>
+		<button type="button" onclick="window.location = '@Url.Action("ClearSearch")'">Clear Search</button>
+	}
 </div>

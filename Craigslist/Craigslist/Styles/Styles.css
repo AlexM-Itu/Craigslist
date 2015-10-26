@@ -30,3 +30,7 @@
 .item-header {
 	cursor: pointer;
 }
+
+#navigation-top-bar {
+	margin-top: 35px;
+}

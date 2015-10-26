@@ -17,7 +17,7 @@ namespace Craigslist.Business
 			}
 		}
 
-		public List<Listing> GetListingsByCategory(string category)
+		public List<Listing> GetListingsByCategoryId(long? categoryId)
 		{
 			using (var domain = new CraigslistDomain())
 			{
@@ -26,7 +26,7 @@ namespace Craigslist.Business
 					.Include(l => l.Category)
 					.Include("Category.ParentCategory")
 					.Include(l => l.Contact)
-					.Where(listing => category == null || listing.Category.Name == category)
+					.Where(listing => categoryId == null || listing.CategoryId == categoryId)
 					.ToList();
 			}
 		}

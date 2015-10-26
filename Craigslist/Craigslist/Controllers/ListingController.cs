@@ -13,9 +13,9 @@ namespace Craigslist.Controllers
 		private readonly LookupManager lookupManager = new LookupManager();
 		private readonly CategoriesHelper categoriesHelper = new CategoriesHelper();
 
-	    public ViewResult List(string category = null)
+	    public ViewResult List(long? categoryId = null)
 	    {
-		    return View(listingsManager.GetListingsByCategory(category));
+		    return View(listingsManager.GetListingsByCategoryId(categoryId));
 	    }
 
 	    public ViewResult Publish()
