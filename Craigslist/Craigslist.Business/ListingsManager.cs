@@ -23,9 +23,9 @@ namespace Craigslist.Business
 			{
 				return domain
 					.Listings
-					.Where(listing => category == null || listing.Category.Name == category)
 					.Include(l => l.Category)
 					.Include(l => l.Contact)
+					.Where(listing => category == null || listing.Category.Name == category)
 					.ToList();
 			}
 		}

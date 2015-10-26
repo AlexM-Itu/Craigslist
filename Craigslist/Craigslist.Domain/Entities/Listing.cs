@@ -21,7 +21,7 @@ namespace Craigslist.Domain.Entities
         [Required]
         public string Body { get; set; }
 
-		public string Price { get; set; }
+		public decimal Price { get; set; }
 
 		public DateTime? Updated { get; set; }
 
