@@ -24,9 +24,22 @@ namespace Craigslist.Business
 				return domain
 					.Listings
 					.Include(l => l.Category)
+					.Include("Category.ParentCategory")
 					.Include(l => l.Contact)
 					.Where(listing => category == null || listing.Category.Name == category)
 					.ToList();
+			}
+		}
+
+		public Listing GetListingsById(long listingId)
+		{
+			using (var domain = new CraigslistDomain())
+			{
+				return domain
+					.Listings
+					.Include(listing => listing.Contact)
+					.Include(listing => listing.Category)
+					.FirstOrDefault(listing => listing.Id == listingId);
 			}
 		}
 	}

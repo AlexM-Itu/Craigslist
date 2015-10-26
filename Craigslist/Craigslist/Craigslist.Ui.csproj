@@ -125,6 +125,7 @@
     <Content Include="Views\Listing\Publish.cshtml" />
     <Content Include="Views\Listing\ListItem.cshtml" />
     <Content Include="Views\Navigation\Index.cshtml" />
+    <Content Include="Views\Listing\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

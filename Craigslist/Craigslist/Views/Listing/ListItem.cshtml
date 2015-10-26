@@ -1,7 +1,14 @@
 ﻿@model Craigslist.Domain.Entities.Listing
 
 <div class="list-item">
-	<span class="item-category-name">@Model.Category.Name</span>
-	<span class="item-header">@Model.Header</span>
+	<span class="item-category-name">
+		@if (@Model.Category.ParentCategory != null)
+		{
+			@Model.Category.ParentCategory.Name @:->
+		}
+
+		@Model.Category.Name
+	</span>
+	<span class="item-header" onclick="window.location='@Url.Action("Detail", new {listingId = @Model.Id})'">@Model.Header</span>
 	<span class="item-price">@Model.Price.ToString("c")</span>
 </div>

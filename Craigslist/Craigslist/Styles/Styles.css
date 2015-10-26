@@ -26,3 +26,7 @@
 .item-header, .item-price {
 	margin-left: 20px;
 }
+
+.item-header {
+	cursor: pointer;
+}

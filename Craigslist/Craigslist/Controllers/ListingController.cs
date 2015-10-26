@@ -33,8 +33,6 @@ namespace Craigslist.Controllers
 		    return categoriesHelper.GetCategoriesListItems(allCategories);
 	    }
 
-	  
-
 	    [HttpPost]
 	    public ActionResult Publish(ListingPublishingViewModel model)
 	    {
@@ -46,6 +44,15 @@ namespace Craigslist.Controllers
 
 		    model.Categories = RetrieveAllCategories();
 			return View(model);
+	    }
+
+	    public ActionResult Detail(long listingId)
+	    {
+		    var listing = listingsManager.GetListingsById(listingId);
+		    if (listing == null)
+			    return RedirectToAction("List");
+
+		    return View(listing);
 	    }
     }
 }
