@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using Craigslist.Business;
 using Craigslist.Helpers;
 using Craigslist.Models.Listings;
+using PagedList;
 
 namespace Craigslist.Controllers
 {
@@ -13,9 +14,11 @@ namespace Craigslist.Controllers
 		private readonly LookupManager lookupManager = new LookupManager();
 		private readonly CategoriesHelper categoriesHelper = new CategoriesHelper();
 
-	    public ViewResult List(long? categoryId = null)
+        public ViewResult List(int? page, long? categoryId = null )
 	    {
-		    return View(listingsManager.GetListingsByCategoryId(categoryId));
+            int pageSize = 1;
+            int pageNumber = (page ?? 1);
+		    return View(listingsManager.GetListingsByCategoryId(categoryId).ToPagedList(pageNumber, pageSize));
 	    }
 
 	    public ViewResult Publish()
