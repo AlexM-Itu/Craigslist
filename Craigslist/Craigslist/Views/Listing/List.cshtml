@@ -1,15 +1,15 @@
 ﻿@model PagedList.IPagedList<Craigslist.Domain.Entities.Listing>
 @using PagedList.Mvc;
-<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 <div id="list-container">
 	@foreach (var item in @Model)
 	{
 		@Html.Partial("ListItem", item)
 	}
+    <!-- Added pagination -->
     Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-
+   
     @Html.PagedListPager(Model, page => Url.Action("List",
     new { page }))
-	<!-- add pagination helper or partial here-->
+	
 </div>

@@ -16,9 +16,7 @@ namespace Craigslist.Controllers
 
         public ViewResult List(int? page, long? categoryId = null )
 	    {
-            int pageSize = 1;
-            int pageNumber = (page ?? 1);
-		    return View(listingsManager.GetListingsByCategoryId(categoryId).ToPagedList(pageNumber, pageSize));
+		    return View(listingsManager.GetListingsByCategoryId(page, categoryId));
 	    }
 
 	    public ViewResult Publish()
