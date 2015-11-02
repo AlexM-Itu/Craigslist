@@ -21,11 +21,11 @@ namespace Craigslist.Business
 			}
 		}
 
-		public IPagedList<Craigslist.Domain.Entities.Listing> GetListingsByCategoryId(int? page, long? categoryId)
+		public IPagedList<Listing> GetListingsByCategoryId(int? page, long? categoryId)
 		{
 			using (var domain = new CraigslistDomain())
 			{
-                int pageSize = Convert.ToInt32(ConfigurationManager.AppSettings["pageSize"]);
+                int pageSize = int.Parse(ConfigurationManager.AppSettings["pageSize"]);
                 int pageNumber = (page ?? 1);
 				return domain
 					.Listings
@@ -33,7 +33,7 @@ namespace Craigslist.Business
 					.Include("Category.ParentCategory")
 					.Include(l => l.Contact)
                     .Where(listing => categoryId == null || listing.CategoryId == categoryId)
-                    .OrderBy(x => x.Created)
+                    .OrderBy(l => l.Created)
 					.ToPagedList(pageNumber, pageSize);
 			}
 		}
