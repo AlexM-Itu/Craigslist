@@ -4,7 +4,6 @@ using System.Web.Mvc;
 using Craigslist.Business;
 using Craigslist.Helpers;
 using Craigslist.Models.Listings;
-using PagedList;
 
 namespace Craigslist.Controllers
 {
