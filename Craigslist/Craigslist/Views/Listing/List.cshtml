@@ -7,7 +7,7 @@
 		@Html.Partial("ListItem", item)
 	}
     <!-- Added pagination -->
-    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+	<span id="page-numbre">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</span>
    
     @Html.PagedListPager(Model, page => Url.Action("List",
     new { page }))
