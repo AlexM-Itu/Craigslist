@@ -1,7 +1,7 @@
 ﻿@model PagedList.IPagedList<Craigslist.Domain.Entities.Listing>
 @using PagedList.Mvc;
 
-<div id="list-container">
+<div id="list-group">
 	@foreach (var item in @Model)
 	{
 		@Html.Partial("ListItem", item)

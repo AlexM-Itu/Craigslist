@@ -3,17 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <title>@ViewBag.Title - ITU's Craigslist</title>
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
     <link href="~/Styles/Styles.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+	<script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <img id="itu-logo" src="http://itu.edu/media/logo/crest_itu_2013.png" />
                 @Html.ActionLink( "ITU's CRAIGSLIST", "List", "Listing", null, new { @class = "navbar-brand"})
@@ -22,11 +21,11 @@
         </div>
     </div>
     <div class="container">
-        @Html.Action("Index", "Navigation")
+	@Html.Action("Index", "Navigation")
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
+    <hr/>
         <footer>
             <p>&copy; @DateTime.Now.Year - ITU Craigslist</p>
         </footer>
