@@ -1,57 +1,24 @@
 ﻿@model Craigslist.Models.Listings.ListingPublishingViewModel
-
 @using (Html.BeginForm("Publish"))
 {
     <div id="publish-ad-validation-summary">
         @Html.ValidationSummary()
     </div>
-        <div id="publish-ad-contact-datails" class="row" class="col-md-6">
-            <label>Your contact information:</label>
-            <form role="form" data-toggle="validator">
-                <div class="form-group">
-                    <label>First Name:</label>
-                    @Html.TextBoxFor(i => i.Listing.Contact.FirstName, new { placeholder = "First Name", @class = "form-control"})
-                </div>
-                <div class="form-group">
-                    <label>Last Name:</label>
-                    @Html.TextBoxFor(i => i.Listing.Contact.LastName, new { placeholder = "Last Name", @class = "form-control"})
-                </div>
-                <div class="form-group">
-                    <label for="input-email" class="control-label">Email:</label>
-                    @Html.TextBoxFor(i => i.Listing.Contact.Email, new { placeholder = "Email", type = "email", @class = "form-control", id="input-email"})
-                </div>
-                <div class="form-group">
-                    <label>Phone:</label>
-                    @Html.TextBoxFor(i => i.Listing.Contact.Phone, new { placeholder = "(000)000-0000", type = "text", @class = "form-control", placement = "top", trigger = "manual" })
-                </div>
-            </form>
-        </div>
-        <div id="publish-ad-topbar" class="row" class="col-md-6">
-            <form>
-                <div class="form-group">
-                    <label>Title:</label>
-                    @Html.TextBoxFor(i => i.Listing.Header, new { id = "publish-ad-header",@class="form-control" })
-                </div>
-                <div class="form-group">
-                    <label>Categories:</label>
-                            @Html.DropDownListFor(i => i.Listing.CategoryId, @Model.Categories,new { @class="form-control"})
-                </div>
-            </form>
-        </div>
-        <div class="row" class="col-md-6">
-            <form>
-                <div class="form-group">
-                    <label for="publish-ad-body" class="control-label">Description:</label>
-                              @Html.TextAreaFor(i => i.Listing.Body, new { id = "publish-ad-body",@class= "form-control",@rows = "5",@placeholder= "Add Description" })
-                </div>
-                <div class="form-group">
-                    <label for="InputFile">Select Image</label>
-                    <input type="file" id="InputFile" class="bg-primary">
-                    <p class="help-block">Please upload any relevant images to post.</p>
-                </div>
-                <button type="submit" class="btn btn-primary">Publish</button>
-            </form>
-        </div>
-    
-
+    <div id="publish-ad-contact-datails">
+        <label>Your contact information:</label>
+        @Html.TextBoxFor(i => i.Listing.Contact.FirstName, new { placeholder = "First Name" })
+        @Html.TextBoxFor(i => i.Listing.Contact.LastName, new { placeholder = "Last Name" })
+        @Html.TextBoxFor(i => i.Listing.Contact.Email, new { placeholder = "Email", type = "email" })
+        @Html.TextBoxFor(i => i.Listing.Contact.Phone, new { placeholder = "Phone" })
+    </div>
+    <div id="publish-ad-topbar">
+        <label>Title:</label>
+        @Html.TextBoxFor(i => i.Listing.Header, new { id = "publish-ad-header" })
+        <label>Price:</label>
+        @Html.TextBoxFor(i => i.Listing.Price, new { type = "number" })
+        <label>Category:</label>
+        @Html.DropDownListFor(i => i.Listing.CategoryId, @Model.Categories)
+    </div>
+    @Html.TextAreaFor(i => i.Listing.Body, new { id = "publish-ad-body" })
+    <button type="submit">Publish</button>
 }
