@@ -60,3 +60,10 @@ select,
 textarea {
     max-width: 400px;
 }
+#itu-logo img {
+    width: 100px;
+}
+#navbar-new-post {
+    margin-top: 21px;
+    position: absolute;
+}

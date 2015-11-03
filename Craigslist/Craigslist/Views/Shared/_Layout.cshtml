@@ -14,9 +14,11 @@
 			<div class="navbar navbar-inverse navbar-fixed-top">
 				<div class="container-fluid">
 					<div class="navbar-header">
-						<img id="itu-logo" src="http://itu.edu/media/logo/crest_itu_2013.png"/>
-						@Html.ActionLink("ITU's CRAIGSLIST", "List", "Listing", null, new {@class = "navbar-brand"})
-						<a class="navbar-brand" onclick=" document.location = '@Url.Action("Publish", "Listing")' ">Create a posting!</a>
+					    <div id="itu-logo" class="navbar-brand" onclick="document.location='@Url.Action("List", "Listing")'">
+					        <img id="itu-logo" src="http://itu.edu/media/logo/crest_itu_2013.png"/>
+                            <span>ITU's CRAIGSLIST</span>
+					    </div>
+                        @Html.ActionLink("Create a posting!", "Publish", new {controller = "Listing"}, new {id="navbar-new-post"})
 					</div>
 				</div>
 			</div>
