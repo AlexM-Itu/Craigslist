@@ -1,9 +1,16 @@
 ﻿@model Craigslist.Domain.Entities.Listing
 
+<div class="row">
+    <div class="col-md-6">
+        <h1>@Model.Category.Name</h1>
+        <h2 class="text-info">
+            @Model.Header</h2>
+    </div>
+    <div class="col-md-6">
+        <h4>@Model.Created</h4>
+        @Model.Price.ToString("c")</div>
+</div>
 <div class="jumbotron">
-	<h1>@Model.Category.Name</h1>
-	<h2 class="text-info">@Model.Header  @Model.Price.ToString("c")</h2>
-	<h4>@Model.Created</h4>
     <blockquote>
         <h3>@Model.Body</h3></blockquote>
 	<h3>Contact Details:</h3>
