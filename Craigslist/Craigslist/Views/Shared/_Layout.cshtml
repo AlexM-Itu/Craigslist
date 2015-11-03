@@ -15,23 +15,20 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <img style="max-width:100px; margin-top: -7px;" src="http://itu.edu/media/logo/crest_itu_2013.png" />
+                <img id="itu-logo" src="http://itu.edu/media/logo/crest_itu_2013.png" />
                 @Html.ActionLink( "ITU's CRAIGSLIST", "List", "Listing", null, new { @class = "navbar-brand"})
                 <a class="navbar-brand" onclick="document.location = '@Url.Action("Publish", "Listing")'">Create a posting!</a>
-                <a class="navbar-brand" ">Login</a>
-                <a class="navbar-brand" ">Register</a>
             </div>
         </div>
     </div>
     <div class="container">
-
         @Html.Action("Index", "Navigation")
     </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - ITU Craigslist</p>
         </footer>
     </div>
 
