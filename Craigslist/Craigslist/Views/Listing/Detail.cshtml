@@ -1,13 +1,13 @@
 ﻿@model Craigslist.Domain.Entities.Listing
 
-<div id="listing-details">
-	<p>@Model.Category.Name</p>
-	<p>@Model.Header  @Model.Price.ToString("c")</p>
-	<p>@Model.Created</p>
-	<p>@Model.Body</p>
-
-	<p>Contact Details:</p>
+<div class="jumbotron">
+	<h1>@Model.Category.Name</h1>
+	<h2 class="text-info">@Model.Header  @Model.Price.ToString("c")</h2>
+	<h4>@Model.Created</h4>
+    <blockquote>
+        <h3>@Model.Body</h3></blockquote>
+	<h3>Contact Details:</h3>
 	<p>@Model.Contact.FirstName @Model.Contact.LastName</p>
 	<p>@Model.Contact.Email</p>
-	<p>@Model.Contact.Phone</p>
+	<p class="glyphicon glyphicon-phone">@Model.Contact.Phone</p>
 </div>

@@ -1,7 +1,7 @@
 ﻿@model Craigslist.Domain.Entities.Listing
 
-<div class="list-item">
-	<span class="item-category-name">
+<div class="list-group">
+	<span class="list-group-item">
 		@if (@Model.Category.ParentCategory != null)
 		{
 			@Model.Category.ParentCategory.Name @:->
@@ -9,6 +9,6 @@
 
 		@Model.Category.Name
 	</span>
-	<span class="item-header" onclick="window.location='@Url.Action("Detail", new {listingId = @Model.Id})'">@Model.Header</span>
-	<span class="item-price">@Model.Price.ToString("c")</span>
+	<span class="list-group-item-heading" onclick="window.location='@Url.Action("Detail", new {listingId = @Model.Id})'">@Model.Header</span>
+	<span class="badge badge-success">@Model.Price.ToString("c")</span>
 </div>

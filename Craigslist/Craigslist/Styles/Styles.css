@@ -3,12 +3,12 @@
 }
 
 #publish-ad-header {
-	width: 2000px;
+	width: 50%;
 }
 
 #publish-ad-body {
-	width: 2000px;
-	height: 800px;
+	width: 50%;
+	height: 300px;
 }
 
 #publish-ad-validation-summary {
@@ -30,6 +30,7 @@
 .item-header {
 	cursor: pointer;
 }
+
 
 #navigation-top-bar {
 	margin-top: 35px;

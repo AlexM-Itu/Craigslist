@@ -1,6 +1,6 @@
 ﻿@model List<Craigslist.Domain.Entities.Listing>
 
-<div id="list-container">
+<div id="list-group">
 	@foreach (var item in @Model)
 	{
 		@Html.Partial("ListItem", item)
