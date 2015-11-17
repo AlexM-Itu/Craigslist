@@ -67,3 +67,10 @@ textarea {
     margin-top: 21px;
     position: absolute;
 }
+.navbar {
+  background-color:#00b35a;
+  border-color: #ffffff;
+}
+.nav-tabs {
+      background-color:#ffffff;
+}

@@ -106,11 +106,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Styles\Styles.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DeleteAdController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Global.asax.cs">
@@ -134,6 +137,8 @@
     <Content Include="Views\Listing\ListItem.cshtml" />
     <Content Include="Views\Navigation\Index.cshtml" />
     <Content Include="Views\Listing\Detail.cshtml" />
+    <Content Include="Views\DeleteAd\DeleteAd.cshtml" />
+    <Content Include="Views\DeleteAd\AdInactive.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
