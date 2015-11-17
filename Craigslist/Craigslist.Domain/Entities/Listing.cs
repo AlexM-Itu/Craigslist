@@ -23,6 +23,8 @@ namespace Craigslist.Domain.Entities
 
 		public decimal Price { get; set; }
 
+	    public bool IsActive { get; set; }
+
 		public DateTime? Updated { get; set; }
 
         public virtual Category Category { get; set; }

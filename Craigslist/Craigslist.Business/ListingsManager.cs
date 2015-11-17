@@ -32,7 +32,7 @@ namespace Craigslist.Business
 					.Include(l => l.Category)
 					.Include("Category.ParentCategory")
 					.Include(l => l.Contact)
-                    .Where(listing => categoryId == null || listing.CategoryId == categoryId)
+                    .Where(listing => listing.IsActive && (categoryId == null || listing.CategoryId == categoryId))
                     .OrderBy(l => l.Created)
 					.ToPagedList(pageNumber, pageSize);
 			}
@@ -46,8 +46,25 @@ namespace Craigslist.Business
 					.Listings
 					.Include(listing => listing.Contact)
 					.Include(listing => listing.Category)
-					.FirstOrDefault(listing => listing.Id == listingId);
+					.FirstOrDefault(listing => listing.Id == listingId && listing.IsActive);
 			}
 		}
+
+	    public void DeactivateListingById(long listingId)
+	    {
+            using (var domain = new CraigslistDomain())
+            {
+                var listingToDeactivate = domain
+                    .Listings
+                    .FirstOrDefault(listing => listing.Id == listingId);
+
+                if (listingToDeactivate != null)
+                {
+                    listingToDeactivate.IsActive = false;
+                    listingToDeactivate.Updated = DateTime.Now;
+                    domain.SaveChanges();
+                }
+            }
+        }
 	}
 }

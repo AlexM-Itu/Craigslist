@@ -54,5 +54,23 @@ namespace Craigslist.Controllers
 
 		    return View(listing);
 	    }
+
+        public ActionResult Delete(long listingId)
+        {
+            var listing = listingsManager.GetListingsById(listingId);
+            if (listing != null)
+                return View(listing);
+
+            return RedirectToAction("List");
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        public ActionResult PerformDeletion(long id)
+        {
+            listingsManager.DeactivateListingById(id);
+
+            return View("DeletionConfirmation");
+        }
     }
 }
