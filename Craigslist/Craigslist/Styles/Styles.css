@@ -1,5 +1,5 @@
 ﻿#publish-ad-contact-datails > *, #publish-ad-topbar, #publish-ad-body {
-    display: block;
+		display: block;
 }
 
 #publish-ad-header {
@@ -12,15 +12,15 @@
 }
 
 #publish-ad-validation-summary {
-    color: #f00;
+	color: #f00;
 }
 
 #list-container {
-    margin-top: 35px;
+	margin-top: 35px;
 }
 
 .list-item + .list-item {
-    border-top: 1px solid #808080;
+	border-top: 1px solid #808080;
 }
 
 .list-item-callout {
@@ -28,16 +28,16 @@
 }
 
 .item-header, .item-price {
-    margin-left: 20px;
+	margin-left: 20px;
 }
 
 .item-header {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 
 #navigation-top-bar {
-    margin-top: 35px;
+	margin-top: 35px;
 }
 
 .list-item-price {
@@ -73,4 +73,11 @@ textarea {
 
 #add-listing-jumbotron input, #add-listing-jumbotron select {
     margin-top: 10px;
+}
+.navbar {
+  background-color:#00b35a;
+  border-color: #ffffff;
+}
+.nav-tabs {
+      background-color:#ffffff;
 }

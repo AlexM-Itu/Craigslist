@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "AdInactive";
+}
+
+<h2>AdInactive</h2>
+
+Your ad is now deleted.!
+
+Thank you for using ITU's Craigslist.
+
+@Html.ActionLink("Go to listings", "List", null, new {@class="hi-class"});
+
+<script type="text/javascript">
+    $(function() {
+        window.setTimeout(function() {
+            window.location('@Url.Action("List")');
+        }, 7);
+    });
+</script>
