@@ -1,26 +1,26 @@
 ﻿#publish-ad-contact-datails > *, #publish-ad-topbar, #publish-ad-body {
-		display: block;
+    display: block;
 }
 
 #publish-ad-header {
-    width: 50%;
+    width: 100%;
 }
 
 #publish-ad-body {
-    width: 50%;
+    width: 100%;
     height: 300px;
 }
 
 #publish-ad-validation-summary {
-	color: #f00;
+    color: #f00;
 }
 
 #list-container {
-	margin-top: 35px;
+    margin-top: 35px;
 }
 
 .list-item + .list-item {
-	border-top: 1px solid #808080;
+    border-top: 1px solid #808080;
 }
 
 .list-item-callout {
@@ -28,21 +28,22 @@
 }
 
 .item-header, .item-price {
-	margin-left: 20px;
+    margin-left: 20px;
 }
 
 .item-header {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 
 #navigation-top-bar {
-	margin-top: 35px;
+    margin-top: 35px;
 }
 
 .list-item-price {
     margin-top: -15px;
 }
+
 body {
     padding-top: 50px;
     padding-bottom: 20px;
@@ -58,12 +59,18 @@ body {
 input,
 select,
 textarea {
-    max-width: 400px;
+    max-width: 100%;
 }
+
 #itu-logo img {
     width: 100px;
 }
+
 #navbar-new-post {
     margin-top: 21px;
     position: absolute;
+}
+
+#add-listing-jumbotron input, #add-listing-jumbotron select {
+    margin-top: 10px;
 }
