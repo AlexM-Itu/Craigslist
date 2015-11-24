@@ -81,3 +81,7 @@ textarea {
 .nav-tabs {
       background-color:#ffffff;
 }
+.jumbotron {
+	padding: 20px;
+	margin: 0;
+}

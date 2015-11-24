@@ -16,6 +16,7 @@ namespace Craigslist.Business
 		{
 			using (var domain = new CraigslistDomain())
 			{
+				listing.IsActive = true;
 				domain.Listings.Add(listing);
 				domain.SaveChanges();
 			}
