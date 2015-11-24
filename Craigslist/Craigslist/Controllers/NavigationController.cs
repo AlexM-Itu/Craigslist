@@ -20,9 +20,6 @@ namespace Craigslist.Controllers
 		[HttpPost]
 	    public ActionResult AppySelection(NavigationViewModel model)
 		{
-			if (model.SelectedCategoty == null && model.SearchQuery == null)
-				return View("Index");
-
 			return RedirectToAction("List", "Listing", new {categoryId = model.SelectedCategoty, q = model.SearchQuery});
 		}
 

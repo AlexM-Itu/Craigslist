@@ -30,6 +30,14 @@ namespace Craigslist.Helpers
 		{
 			var items = new List<SelectListItem>();
 			AddCategoriesToList(categories.Where(cat => cat.ParentId == null).ToList(), items, 0);
+			items.Insert(0, new SelectListItem
+			{
+				Text = "Select a category", 
+				Value = null,
+				Disabled = true,
+				Selected = true
+			});
+
 			return items;
 		}
 	}
