@@ -85,3 +85,8 @@ textarea {
 	padding: 20px;
 	margin: 0;
 }
+
+.container .jumbotron {
+	padding: 10px;
+	margin: 0;
+}
