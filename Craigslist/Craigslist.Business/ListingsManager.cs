@@ -3,6 +3,10 @@ using System.Data.Entity;
 using System.Linq;
 using Craigslist.Domain;
 using Craigslist.Domain.Entities;
+using PagedList;
+using System.Configuration;
+using System;
+
 
 namespace Craigslist.Business
 {
@@ -17,17 +21,20 @@ namespace Craigslist.Business
 			}
 		}
 
-		public List<Listing> GetListingsByCategoryId(long? categoryId)
+		public IPagedList<Listing> GetListingsByCategoryId(int? page, long? categoryId)
 		{
 			using (var domain = new CraigslistDomain())
 			{
+                int pageSize = int.Parse(ConfigurationManager.AppSettings["pageSize"]);
+                int pageNumber = (page ?? 1);
 				return domain
 					.Listings
 					.Include(l => l.Category)
 					.Include("Category.ParentCategory")
 					.Include(l => l.Contact)
-					.Where(listing => categoryId == null || listing.CategoryId == categoryId)
-					.ToList();
+                    .Where(listing => categoryId == null || listing.CategoryId == categoryId)
+                    .OrderBy(l => l.Created)
+					.ToPagedList(pageNumber, pageSize);
 			}
 		}
 
