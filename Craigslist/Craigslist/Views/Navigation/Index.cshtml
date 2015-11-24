@@ -6,7 +6,7 @@
 <div class="dropdown" id="navigation-top-bar" >
     @using (Html.BeginForm("AppySelection", "Navigation"))
     {
-
+		@Html.TextBoxFor(i=> i.SearchQuery, new {placeholder="Search"})
         @Html.DropDownListFor(i => i.SelectedCategoty, @Model.Categories, new { @class = "btn btn-default dropdown-toggle", aria_haspopup = "true", aria_expanded = "true", type = "button", id = "menu", data_toggle = "dropdown" })
     
         <button class="btn btn-info glyphicon glyphicon-search" type="submit"></button>

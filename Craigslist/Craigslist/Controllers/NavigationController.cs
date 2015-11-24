@@ -11,17 +11,20 @@ namespace Craigslist.Controllers
 	    private readonly LookupManager lookupManager = new LookupManager();
 		private readonly CategoriesHelper categoriesHelper = new CategoriesHelper();
 
-		public ActionResult Index(long? categoryId)
+		public ActionResult Index(long? categoryId, string q)
         {
 			var allCategories = lookupManager.GetAllCategories().ToList();
-			return View(new NavigationViewModel {SelectedCategoty = categoryId, Categories = categoriesHelper.GetCategoriesListItems(allCategories) });
+			return View(new NavigationViewModel {SelectedCategoty = categoryId, SearchQuery = q, Categories = categoriesHelper.GetCategoriesListItems(allCategories) });
         }
 
 		[HttpPost]
 	    public ActionResult AppySelection(NavigationViewModel model)
 		{
-		    return RedirectToAction("List", "Listing", new {categoryId = model.SelectedCategoty});
-	    }
+			if (model.SelectedCategoty == null && model.SearchQuery == null)
+				return View("Index");
+
+			return RedirectToAction("List", "Listing", new {categoryId = model.SelectedCategoty, q = model.SearchQuery});
+		}
 
 	    public ActionResult ClearSearch()
 	    {
