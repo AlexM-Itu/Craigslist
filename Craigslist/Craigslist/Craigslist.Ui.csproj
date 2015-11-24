@@ -113,7 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\DeleteAdController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Global.asax.cs">
