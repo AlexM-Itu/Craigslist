@@ -5,16 +5,16 @@
 
 <h2>Your listing is deleted</h2>
 
-Your ad is now deleted.!
+<p>Your ad is now deleted!</p>
 
-Thank you for using ITU's Craigslist.
+<p>Thank you for using ITU's Craigslist.</p>
 
 @Html.ActionLink("Go to listings", "List", null, new {@class="hi-class"});
 
 <script type="text/javascript">
     $(function() {
         window.setTimeout(function() {
-            window.location('@Url.Action("List")');
+	        window.location('@Url.Action("List")');
         }, 7);
     });
 </script>
