@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web;
@@ -41,11 +42,13 @@ namespace Craigslist.Controllers
 	    {
 		    if (ModelState.IsValid)
 		    {
-			    var listingId = listingsManager.PublishListing(model.Listing);
+			    var removalGuid = Guid.NewGuid();
+			    model.Listing.RemovalGuid = removalGuid.ToString();
+			    listingsManager.PublishListing(model.Listing);
 				emailManager.SendEmail(model.Listing.Contact.Email, ConfigurationManager.AppSettings["Email"], "Control Your Listing", string.Format(@"Hi {0}, 
 Thank you for posting your listing {1} on our website. 
 If your item is sold out or you just want to delete it for whatever reason, just click the list below: 
-http://{2}/Listing/Delete?listingId={3}", model.Listing.Contact.FirstName, model.Listing.Header, HttpContext.Request.Url.Host, listingId));
+http://{2}/Listing/Delete?removalId={3}", model.Listing.Contact.FirstName, model.Listing.Header, HttpContext.Request.Url.Host, removalGuid));
 			    return RedirectToAction("List");
 		    }
 
@@ -62,9 +65,9 @@ http://{2}/Listing/Delete?listingId={3}", model.Listing.Contact.FirstName, model
 		    return View(listing);
 	    }
 
-        public ActionResult Delete(long listingId)
+		public ActionResult Delete(string removalId)
         {
-            var listing = listingsManager.GetListingsById(listingId);
+			var listing = listingsManager.GetListingsByRemovalGuid(removalId);
             if (listing != null)
                 return View(listing);
 
@@ -73,9 +76,9 @@ http://{2}/Listing/Delete?listingId={3}", model.Listing.Contact.FirstName, model
 
         [HttpPost]
         [ActionName("Delete")]
-        public ActionResult PerformDeletion(long id)
+		public ActionResult PerformDeletion(string removalGuid)
         {
-            listingsManager.DeactivateListingById(id);
+            listingsManager.DeactivateListingByRemovalId(removalGuid);
 
             return View("DeletionConfirmation");
         }

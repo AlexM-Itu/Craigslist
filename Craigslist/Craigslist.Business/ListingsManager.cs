@@ -12,15 +12,13 @@ namespace Craigslist.Business
 {
 	public class ListingsManager
 	{
-		public long PublishListing(Listing listing)
+		public void PublishListing(Listing listing)
 		{
 			using (var domain = new CraigslistDomain())
 			{
 				listing.IsActive = true;
 				domain.Listings.Add(listing);
 				domain.SaveChanges();
-
-				return listing.Id;
 			}
 		}
 
@@ -53,13 +51,25 @@ namespace Craigslist.Business
 			}
 		}
 
-	    public void DeactivateListingById(long listingId)
+		public Listing GetListingsByRemovalGuid(string removalId)
+		{
+			using (var domain = new CraigslistDomain())
+			{
+				return domain
+					.Listings
+					.Include(listing => listing.Contact)
+					.Include(listing => listing.Category)
+					.FirstOrDefault(listing => listing.RemovalGuid == removalId && listing.IsActive);
+			}
+		}
+
+		public void DeactivateListingByRemovalId(string removalId)
 	    {
             using (var domain = new CraigslistDomain())
             {
                 var listingToDeactivate = domain
                     .Listings
-                    .FirstOrDefault(listing => listing.Id == listingId);
+                    .FirstOrDefault(listing => listing.RemovalGuid == removalId);
 
                 if (listingToDeactivate != null)
                 {

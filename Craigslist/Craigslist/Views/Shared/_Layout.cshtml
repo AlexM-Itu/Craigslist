@@ -10,33 +10,34 @@
 	<script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
-        <div class="container">
-			<div class="navbar navbar-inverse navbar-fixed-top">
-				<div class="container-fluid">
-					<div class="navbar-header">
-					    <div id="itu-logo" class="navbar-brand" onclick="document.location='@Url.Action("List", "Listing")'">
-							<img id="itu-logo" src="https://ituedu-141b.kxcdn.com/wp-content/uploads/2013/08/crest_itu_250x100.png" />
-                            <span>ITU's CRAIGSLIST</span>
-					    </div>
-                        @Html.ActionLink("Create a posting!", "Publish", new {controller = "Listing"}, new {id="navbar-new-post"})
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<div id="itu-logo" class="navbar-brand" onclick="document.location='@Url.Action("List", "Listing")'">
+						<img id="itu-logo" src="https://ituedu-141b.kxcdn.com/wp-content/uploads/2013/08/crest_itu_250x100.png" />
+						<span>ITU's CRAIGSLIST</span>
 					</div>
+					@Html.ActionLink("Create a posting!", "Publish", new { controller = "Listing" }, new { id = "navbar-new-post" })
 				</div>
 			</div>
 		</div>
-    <div class="container">
-	@Html.Action("Index", "Navigation")
-	<hr />
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-    <hr/>
-        <footer>
-            <p>&copy; @DateTime.Now.Year - ITU Craigslist</p>
-        </footer>
-    </div>
+	</div>
+	<div class="container">
+		@Html.Action("Index", "Navigation")
+		<hr />
+	</div>
+	<div class="container body-content">
+		@RenderBody()
+		<hr />
+		<footer>
+			<p>&copy; @DateTime.Now.Year - ITU Craigslist</p>
+		</footer>
+	</div>
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+
 
 </body>
 </html>
