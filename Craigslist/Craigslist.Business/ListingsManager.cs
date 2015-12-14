@@ -34,7 +34,7 @@ namespace Craigslist.Business
 					.Include("Category.ParentCategory")
 					.Include(l => l.Contact)
                     .Where(listing => listing.IsActive && (categoryId == null || listing.CategoryId == categoryId) && (q == null || listing.Header.Contains(q)))
-                    .OrderBy(l => l.Created)
+                    .OrderByDescending(l => l.Created)
 					.ToPagedList(pageNumber, pageSize);
 			}
 		}
