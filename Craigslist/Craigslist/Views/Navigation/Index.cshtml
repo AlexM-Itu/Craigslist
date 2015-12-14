@@ -9,11 +9,11 @@
         <div>
             @Html.TextBoxFor(i => i.SearchQuery, new { placeholder = "Search", @class = "form-control-search" })
 
-            @Html.DropDownListFor(i => i.SelectedCategoty, @Model.Categories, new { @class = "btn btn-default dropdown-toggle", aria_haspopup = "true", aria_expanded = "true", type = "button", id = "menu", data_toggle = "dropdown" })
+            @Html.DropDownListFor(i => i.SelectedCategoty, @Model.Categories, new { @class = "btn btn-default dropdown-toggle", aria_haspopup = "true", aria_expanded = "true", type = "button", id = "categories-selector", data_toggle = "dropdown" })
 
-            <button class="  form-control-search btn-primary glyphicon glyphicon-search" type="submit" ></button>
+			<button class="  form-control-search btn-primary glyphicon glyphicon-search" id="categories-search-button" type="submit"></button>
 
-            <button class=" form-control-search btn btn-primary" type="button" onclick="window.location = '@Url.Action("ClearSearch")'">Clear Search</button>
+			<button class=" form-control-search btn btn-primary" type="button" onclick="window.location = '@Url.Action("ClearSearch")'">Clear Search</button>
         </div>
     }
 </div>

@@ -1,17 +1,19 @@
 ﻿#publish-ad-contact-datails > *, #publish-ad-topbar, #publish-ad-body {
-		display: block;
+	display: block;
 }
 
 #publish-ad-header {
-    width: 100%;
+	width: 100%;
 }
+
 #publish-ad-price {
 	width: 96%;
-    float: right;
+	float: right;
 }
+
 #publish-ad-body {
-    width: 100%;
-    height: 300px;
+	width: 100%;
+	height: 300px;
 }
 
 #publish-ad-validation-summary {
@@ -27,7 +29,7 @@
 }
 
 .list-item-callout {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .item-header, .item-price {
@@ -44,46 +46,53 @@
 }
 
 .list-item-price {
-    margin-top: -15px;
+	margin-top: -15px;
 }
 
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+	padding-top: 50px;
+	padding-bottom: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
-    max-width: 100%;
+	max-width: 100%;
 }
 
 #itu-logo img {
-    width: 100px;
+	width: 100px;
+}
+
+#itu-logo span {
+	color: #4A4848;
 }
 
 #navbar-new-post {
-    margin-top: 21px;
-    position: absolute;
+	margin-top: 25px;
+	position: absolute;
 }
 
 #add-listing-jumbotron input, #add-listing-jumbotron select {
-    margin-top: 10px;
+	margin-top: 10px;
 }
+
 .navbar {
-  background-color:#00b35a;
-  border-color: #ffffff;
+	background-color: #00b35a;
+	border-color: #ffffff;
 }
+
 .nav-tabs {
-      background-color:#ffffff;
+	background-color: #ffffff;
 }
+
 .jumbotron {
 	padding: 20px;
 	margin: 0;
@@ -95,18 +104,26 @@ textarea {
 }
 
 .form-control-search {
-    display: inline; 
-  height: 34px;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.428571429;
-  color: #555555;
-  vertical-align: middle;
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-          transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	display: inline;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #555555;
+	vertical-align: middle;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+#categories-selector {
+	height: 34px;
+}
+
+#categories-search-button {
+	margin-top: -2px;
 }
