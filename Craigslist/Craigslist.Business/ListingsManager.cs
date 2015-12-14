@@ -12,13 +12,15 @@ namespace Craigslist.Business
 {
 	public class ListingsManager
 	{
-		public void PublishListing(Listing listing)
+		public long PublishListing(Listing listing)
 		{
 			using (var domain = new CraigslistDomain())
 			{
 				listing.IsActive = true;
 				domain.Listings.Add(listing);
 				domain.SaveChanges();
+
+				return listing.Id;
 			}
 		}
 

@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmailManager.cs" />
     <Compile Include="ListingsManager.cs" />
     <Compile Include="LookupManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

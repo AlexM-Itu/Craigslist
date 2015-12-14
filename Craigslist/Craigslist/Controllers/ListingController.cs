@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using Craigslist.Business;
 using Craigslist.Helpers;
@@ -12,6 +14,7 @@ namespace Craigslist.Controllers
 		private readonly ListingsManager listingsManager = new ListingsManager();
 		private readonly LookupManager lookupManager = new LookupManager();
 		private readonly CategoriesHelper categoriesHelper = new CategoriesHelper();
+		private readonly EmailManager emailManager = new EmailManager();
 
         public ViewResult List(int? page, long? categoryId = null , string q = null)
 	    {
@@ -38,7 +41,11 @@ namespace Craigslist.Controllers
 	    {
 		    if (ModelState.IsValid)
 		    {
-			    listingsManager.PublishListing(model.Listing);
+			    var listingId = listingsManager.PublishListing(model.Listing);
+				emailManager.SendEmail(model.Listing.Contact.Email, ConfigurationManager.AppSettings["Email"], "Control Your Listing", string.Format(@"Hi {0}, 
+Thank you for posting your listing {1} on our website. 
+If your item is sold out or you just want to delete it for whatever reason, just click the list below: 
+http://{2}/Delete/{3}", model.Listing.Contact.FirstName, model.Listing.Header, HttpContext.Request.Url.Host, listingId));
 			    return RedirectToAction("List");
 		    }
 
