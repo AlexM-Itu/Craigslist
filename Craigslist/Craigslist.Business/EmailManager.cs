@@ -8,22 +8,30 @@ namespace Craigslist.Business
 	{
 		public void SendEmail(string recepient, string from, string header, string content)
 		{
-			using (var client = new SmtpClient(ConfigurationManager.AppSettings["SmtpHost"], int.Parse(ConfigurationManager.AppSettings["SmtpPort"])))
+			try
 			{
-				client.UseDefaultCredentials = false;
-				client.EnableSsl = true;
-				client.Credentials = new NetworkCredential(ConfigurationManager.AppSettings["Email"], ConfigurationManager.AppSettings["EmailPassword"]);
-
-				using (var message = new MailMessage())
+				using (var client = new SmtpClient(ConfigurationManager.AppSettings["SmtpHost"], int.Parse(ConfigurationManager.AppSettings["SmtpPort"])))
 				{
-					message.From = new MailAddress(from);
-					message.To.Add(recepient);
-					message.Subject = header;
-					message.Body = content;
-					
-					client.Send(message);
+					client.UseDefaultCredentials = false;
+					client.EnableSsl = true;
+					client.Credentials = new NetworkCredential(ConfigurationManager.AppSettings["Email"], ConfigurationManager.AppSettings["EmailPassword"]);
+
+					using (var message = new MailMessage())
+					{
+						message.From = new MailAddress(from);
+						message.To.Add(recepient);
+						message.Subject = header;
+						message.Body = content;
+
+						client.Send(message);
+					}
 				}
 			}
+			catch 
+			{
+				// TODO we don't have logging on this project
+			}
+			
 		}
 	}
 }
