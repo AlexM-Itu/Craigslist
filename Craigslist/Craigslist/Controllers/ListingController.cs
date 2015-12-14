@@ -45,7 +45,7 @@ namespace Craigslist.Controllers
 				emailManager.SendEmail(model.Listing.Contact.Email, ConfigurationManager.AppSettings["Email"], "Control Your Listing", string.Format(@"Hi {0}, 
 Thank you for posting your listing {1} on our website. 
 If your item is sold out or you just want to delete it for whatever reason, just click the list below: 
-http://{2}/Delete/{3}", model.Listing.Contact.FirstName, model.Listing.Header, HttpContext.Request.Url.Host, listingId));
+http://{2}/Listing/Delete?listingId={3}", model.Listing.Contact.FirstName, model.Listing.Header, HttpContext.Request.Url.Host, listingId));
 			    return RedirectToAction("List");
 		    }
 
