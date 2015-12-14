@@ -30,7 +30,7 @@
                             @Html.TextBoxFor(i => i.Listing.Header, new { id = "publish-ad-header", @class = "form-control", placeholder = "Title of Ad" })
                         </div>
                         <div class="col-md-4">
-                            @Html.TextBoxFor(i => i.Listing.Price, new { @class = "form-control", placeholder = "$" })
+                            @Html.TextBoxFor(i => i.Listing.Price, new { @class = "form-control", placeholder = "$", type="number" })
                         </div>
                         <div class="col-md-4">
                             @Html.DropDownListFor(i => i.Listing.CategoryId, @Model.Categories, new { @class = "form-control", })
