@@ -27,10 +27,10 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4">
-                            @Html.TextBoxFor(i => i.Listing.Header, new { id = "publish-ad-header", @class = "form-control", placeholder = "Title of Ad" })
+                            @Html.TextBoxFor(i => i.Listing.Header, new { id = "publish-ad-header", @class = "form-control", placeholder = "Title of a listing" })
                         </div>
                         <div class="col-md-4">
-                            @Html.TextBoxFor(i => i.Listing.Price, new { @class = "form-control", placeholder = "$", type="number" })
+                            $@Html.TextBoxFor(i => i.Listing.Price, new { @class = "form-control", placeholder = "Price", type="number", id="publish-ad-price" })
                         </div>
                         <div class="col-md-4">
                             @Html.DropDownListFor(i => i.Listing.CategoryId, @Model.Categories, new { @class = "form-control", })

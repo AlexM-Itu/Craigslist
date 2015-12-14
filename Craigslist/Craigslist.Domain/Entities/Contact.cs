@@ -8,11 +8,11 @@ namespace Craigslist.Domain.Entities
     {
         public long Id { get; set; }
 
-        [Required]
+        [Required (ErrorMessage = "First Name is required!")]
         [StringLength(50)]
         public string FirstName { get; set; }
 
-        [Required]
+        [Required (ErrorMessage = "Last Name is required!")]
         [StringLength(50)]
         public string LastName { get; set; }
 

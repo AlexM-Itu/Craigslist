@@ -5,7 +5,10 @@
 #publish-ad-header {
     width: 100%;
 }
-
+#publish-ad-price {
+	width: 96%;
+    float: right;
+}
 #publish-ad-body {
     width: 100%;
     height: 300px;

@@ -14,11 +14,11 @@ namespace Craigslist.Domain.Entities
 		[ForeignKey("Contact")]
         public long ContactId { get; set; }
 
-        [Required]
+        [Required (ErrorMessage = "Title field is required!")]
         [StringLength(200)]
         public string Header { get; set; }
 
-        [Required]
+        [Required (ErrorMessage = "Description of the listing is required!")]
         public string Body { get; set; }
 
 		public decimal Price { get; set; }
