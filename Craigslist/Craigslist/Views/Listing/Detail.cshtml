@@ -1,35 +1,41 @@
 ﻿@model Craigslist.Domain.Entities.Listing
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
-            <strong>@Model.Category.Name</strong>
-        </div>
+	    <div class="col-md-6">
+		    <a href="@Url.Action("List", new { categoryId = Model.Category.Id })"><strong>@Model.Category.Name</strong></a>
+	    </div>
         <div class="col-md-6">
             <span class="pull-right">
                 @Model.Created
             </span>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <p class="text-info">@Model.Header</p>
-        </div>
-        <div class="col-md-6">
-            <span class="badge badge-success pull-right">
+	<div class="row">
+		<div class="col-md-6">
+			<p class="text-info">@Model.Header</p>
+		</div>
+		<div class="col-md-6">
+			<span class="badge badge-success pull-right">
                 @Model.Price.ToString("c")
             </span>
-        </div>
-    </div>
+		</div>
+	</div>
+	@if (Model.FeaturedImageData != null)
+	{
+		<div class="row">
+			<img src="@Url.Action("GetFeaturedImage", new {listingId = Model.Id})" id="featured-image" />
+		</div>
+	}
     <div class="jumbotron">
         <div>
             <h3>@Model.Body</h3>
         </div>
     </div>
-    <div class="row">
-        <address class="pull-right">
-            <strong>@Model.Contact.FirstName @Model.Contact.LastName</strong><br/>
-            <p class="glyphicon glyphicon-envelope">@Model.Contact.Email</p><br/>
-            <p class="glyphicon glyphicon-phone">@Model.Contact.Phone</p>
-        </address>
-    </div>
+	<div class="row">
+		<address class="pull-right">
+			<strong>@Model.Contact.FirstName @Model.Contact.LastName</strong><br/>
+			<p class="glyphicon glyphicon-envelope">@Model.Contact.Email</p><br/>
+			<p class="glyphicon glyphicon-phone">@Model.Contact.Phone</p>
+		</address>
+	</div>
 </div>

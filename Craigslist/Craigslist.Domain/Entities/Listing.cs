@@ -25,6 +25,10 @@ namespace Craigslist.Domain.Entities
 
 		public string RemovalGuid { get; set; }
 
+		public byte[] FeaturedImageData { get; set; }
+
+		public string FeaturedImageMimeType { get; set; }
+
 	    public bool IsActive { get; set; }
 
 		public DateTime? Updated { get; set; }

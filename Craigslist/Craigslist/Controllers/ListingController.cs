@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Craigslist.Business;
@@ -38,11 +39,18 @@ namespace Craigslist.Controllers
 	    }
 
 	    [HttpPost]
-	    public ActionResult Publish(ListingPublishingViewModel model)
+		public ActionResult Publish(ListingPublishingViewModel model, HttpPostedFileBase image = null)
 	    {
 		    if (ModelState.IsValid)
 		    {
 			    var removalGuid = Guid.NewGuid();
+			    if (image != null)
+			    {
+				    model.Listing.FeaturedImageMimeType = image.ContentType;
+					model.Listing.FeaturedImageData = new byte[image.ContentLength];
+				    image.InputStream.Read(model.Listing.FeaturedImageData, 0, image.ContentLength);
+			    }
+
 			    model.Listing.RemovalGuid = removalGuid.ToString();
 			    listingsManager.PublishListing(model.Listing);
 				emailManager.SendEmail(model.Listing.Contact.Email, ConfigurationManager.AppSettings["Email"], "Control Your Listing", string.Format(@"Hi {0}, 
@@ -82,5 +90,14 @@ http://{2}/Listing/Delete?removalId={3}", model.Listing.Contact.FirstName, model
 
             return View("DeletionConfirmation");
         }
+
+	    public FileContentResult GetFeaturedImage(long listingId)
+	    {
+			var listing = listingsManager.GetListingsById(listingId);
+		    if (listing != null && listing.FeaturedImageData != null)
+			    return new FileContentResult(listing.FeaturedImageData, listing.FeaturedImageMimeType);
+
+		    return null;
+	    }
     }
 }

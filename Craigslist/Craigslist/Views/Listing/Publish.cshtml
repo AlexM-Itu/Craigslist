@@ -1,5 +1,5 @@
 ﻿@model Craigslist.Models.Listings.ListingPublishingViewModel
-@using (Html.BeginForm("Publish"))
+@using (Html.BeginForm("Publish","Listing", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div id="publish-ad-validation-summary">
         @Html.ValidationSummary()
@@ -25,17 +25,22 @@
                             @Html.TextBoxFor(i => i.Listing.Contact.Phone, new { placeholder = "(000)000-0000", type = "text", @class = "form-control", placement = "top", trigger = "manual" })
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            @Html.TextBoxFor(i => i.Listing.Header, new { id = "publish-ad-header", @class = "form-control", placeholder = "Title of a listing" })
-                        </div>
-                        <div class="col-md-4">
-                            $@Html.TextBoxFor(i => i.Listing.Price, new { @class = "form-control", placeholder = "Price", type="number", id="publish-ad-price" })
-                        </div>
-                        <div class="col-md-4">
-                            @Html.DropDownListFor(i => i.Listing.CategoryId, @Model.Categories, new { @class = "form-control", })
-                        </div>
-                    </div>
+	                <div class="row">
+		                <div class="col-md-4">
+			                @Html.TextBoxFor(i => i.Listing.Header, new {id = "publish-ad-header", @class = "form-control", placeholder = "Title of a listing"})
+		                </div>
+		                <div class="col-md-4">
+			                $@Html.TextBoxFor(i => i.Listing.Price, new {@class = "form-control", placeholder = "Price", type = "number", id = "publish-ad-price"})
+		                </div>
+		                <div class="col-md-4">
+			                @Html.DropDownListFor(i => i.Listing.CategoryId, @Model.Categories, new {@class = "form-control",})
+		                </div>
+	                </div>
+	                <div class="row">
+		                <div class="col-md-4">
+							<input type="file" name="image" class="form-control" />
+		                </div>
+	                </div>
                 </div>
             </div>
         </div>
