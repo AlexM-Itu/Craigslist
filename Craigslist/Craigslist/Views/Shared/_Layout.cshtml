@@ -17,10 +17,11 @@
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<div id="itu-logo" class="navbar-brand" onclick="document.location='@Url.Action("List", "Listing")'">
+					<div id="itu-logo" class="navbar-brand" onclick="document.location='@Url.Action("List", "Listing")'">
 						<img id="itu-logo" src="https://ituedu-141b.kxcdn.com/wp-content/uploads/2013/08/crest_itu_250x100.png" />
-						<span>CRAIGSLIST</span>
+						<span id="craigslist-title">CRAIGSLIST</span>
 					</div>
-					@Html.ActionLink("Create a listing!", "Publish", new { controller = "Listing" }, new { id = "navbar-new-post" })
+					@Html.ActionLink("CREATE A LISTING!", "Publish", new { controller = "Listing" }, new { id = "navbar-new-post" })
 				</div>
 			</div>
 		</div>

@@ -16,8 +16,8 @@ namespace Craigslist.Domain.Entities
         [StringLength(50)]
         public string LastName { get; set; }
 
-        [Required]
-        [StringLength(10)]
+        [Required(ErrorMessage = "Please enter a vaild Phone number!")]
+        [StringLength(10),MinLength(10)]
         public string Phone { get; set; }
 
         [Required]

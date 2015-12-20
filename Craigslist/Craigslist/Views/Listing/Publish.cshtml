@@ -22,20 +22,25 @@
                             @Html.TextBoxFor(i => i.Listing.Contact.Email, new { placeholder = "Email", type = "email", @class = "form-control" })
                         </div>
                         <div class="col-md-6">
-                            @Html.TextBoxFor(i => i.Listing.Contact.Phone, new { placeholder = "(000)000-0000", type = "text", @class = "form-control", placement = "top", trigger = "manual" })
+                            @Html.TextBoxFor(i => i.Listing.Contact.Phone, new { placeholder = "0000000000", type = "number", min = "0", pattern = @"\d{10}", @class = "form-control", placement = "top", trigger = "manual" })
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
-                            @Html.TextBoxFor(i => i.Listing.Header, new { id = "publish-ad-header", @class = "form-control", placeholder = "Title of a listing" })
+                            @Html.TextBoxFor(i => i.Listing.Header, new {@class = "form-control", id = "publish-ad-header", maxlength = "30", placeholder = "Title of a listing"})
                         </div>
-                        <div class="col-md-4">
-                            $@Html.TextBoxFor(i => i.Listing.Price, new { @class = "form-control", placeholder = "Price", type="number", id="publish-ad-price" })
+                        <div class="col-md-4" @*style="width: 350px"*@>
+                            @Html.TextBoxFor(i => i.Listing.Price, new {@class = "form-control  ", id = "publish-ad-price", placeholder = "Price", maxlength = "4", min = "0", type = "number"})
                         </div>
-                        <div class="col-md-4">
-                            @Html.DropDownListFor(i => i.Listing.CategoryId, @Model.Categories, new { @class = "form-control", })
+                        @*<div class="col-md-1" style="margin-top: 12px; margin-left: -35px; border: 1px; width: 5px">
+                            <span style="border: 1px black" class="input-group-addon">$</span>
+                        </div>*@
+
+                        <div class="col-md-4" >
+                            @Html.DropDownListFor(i => i.Listing.CategoryId, @Model.Categories, new {@class = "form-control",})
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
