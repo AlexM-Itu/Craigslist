@@ -26,13 +26,16 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
 			                @Html.TextBoxFor(i => i.Listing.Header, new {id = "publish-ad-header", @class = "form-control", placeholder = "Title of a listing"})
 		                </div>
-	                    <div class="col-md-4">
+	                    <div class="col-md-3">
 		                    $@Html.TextBoxFor(i => i.Listing.Price, new {@class = "form-control  ", id = "publish-ad-price", placeholder = "Price", maxlength = "4", min = "0", type = "number"})
 	                    </div>
-						<div class="col-md-4">
+						<div class="col-md-3">
+							@Html.DropDownListFor(i => i.Listing.CategoryId, @Model.Categories, new { @class = "form-control", })
+						</div>
+						<div class="col-md-3">
 							<input type="file" name="image" class="form-control" />
 						</div>
 	                </div>
