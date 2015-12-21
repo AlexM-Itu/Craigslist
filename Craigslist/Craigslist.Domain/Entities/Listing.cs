@@ -21,7 +21,8 @@ namespace Craigslist.Domain.Entities
         [Required (ErrorMessage = "Description of the listing is required!")]
         public string Body { get; set; }
 
-		public decimal Price { get; set; }
+        [Required(ErrorMessage = "Please enter a valid price!")]
+        public decimal Price { get; set; }
 
 		public string RemovalGuid { get; set; }
 

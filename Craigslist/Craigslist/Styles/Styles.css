@@ -36,6 +36,10 @@
 	margin-left: 20px;
 }
 
+#myspan {
+    height: 1px;
+}
+
 .item-header {
 	cursor: pointer;
 }
@@ -49,7 +53,11 @@
 	margin-top: -15px;
 }
 
+
+
 body {
+    font-family: cursive;
+    font-size: 19px;
 	padding-top: 50px;
 	padding-bottom: 20px;
 }
@@ -71,14 +79,23 @@ textarea {
 	width: 100px;
 }
 
-#itu-logo span {
-	color: #4A4848;
-}
 
 #navbar-new-post {
 	margin-top: 25px;
 	position: absolute;
+    color: black;
+    font-size: large;
+    font-family: cursive;
 }
+
+#craigslist-title {
+    font-family: times;
+    font-size: 28x;
+    color: white;
+    position: relative;
+    font: menu-item;
+}
+
 
 #add-listing-jumbotron input, #add-listing-jumbotron select {
 	margin-top: 10px;
@@ -92,6 +109,7 @@ textarea {
 .nav-tabs {
 	background-color: #ffffff;
 }
+
 
 .jumbotron {
 	padding: 20px;
@@ -123,6 +141,8 @@ textarea {
 #categories-selector {
 	height: 34px;
 }
+
+
 
 #categories-search-button {
 	margin-top: -2px;

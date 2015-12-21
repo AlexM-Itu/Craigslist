@@ -22,25 +22,26 @@
                             @Html.TextBoxFor(i => i.Listing.Contact.Email, new { placeholder = "Email", type = "email", @class = "form-control" })
                         </div>
                         <div class="col-md-6">
-                            @Html.TextBoxFor(i => i.Listing.Contact.Phone, new { placeholder = "(000)000-0000", type = "text", @class = "form-control", placement = "top", trigger = "manual" })
+                            @Html.TextBoxFor(i => i.Listing.Contact.Phone, new { placeholder = "0000000000", type = "number", min = "0", pattern = @"\d{10}", @class = "form-control", placement = "top", trigger = "manual" })
                         </div>
                     </div>
-	                <div class="row">
-		                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-4">
 			                @Html.TextBoxFor(i => i.Listing.Header, new {id = "publish-ad-header", @class = "form-control", placeholder = "Title of a listing"})
 		                </div>
 		                <div class="col-md-4">
 			                $@Html.TextBoxFor(i => i.Listing.Price, new {@class = "form-control", placeholder = "Price", type = "number", id = "publish-ad-price"})
-		                </div>
+                        </div>
 		                <div class="col-md-4">
-			                @Html.DropDownListFor(i => i.Listing.CategoryId, @Model.Categories, new {@class = "form-control",})
-		                </div>
+                            @Html.TextBoxFor(i => i.Listing.Price, new {@class = "form-control  ", id = "publish-ad-price", placeholder = "Price", maxlength = "4", min = "0", type = "number"})
+                        </div>
 	                </div>
 	                <div class="row">
 		                <div class="col-md-4">
 							<input type="file" name="image" class="form-control" />
-		                </div>
-	                </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
