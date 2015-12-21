@@ -7,8 +7,8 @@
 }
 
 #publish-ad-price {
-	width: 96%;
 	float: right;
+	width: 95%;
 }
 
 #publish-ad-body {
@@ -37,7 +37,7 @@
 }
 
 #myspan {
-    height: 1px;
+	height: 1px;
 }
 
 .item-header {
@@ -56,8 +56,8 @@
 
 
 body {
-    font-family: cursive;
-    font-size: 19px;
+	font-family: cursive;
+	font-size: 19px;
 	padding-top: 50px;
 	padding-bottom: 20px;
 }
@@ -83,17 +83,16 @@ textarea {
 #navbar-new-post {
 	margin-top: 25px;
 	position: absolute;
-    color: black;
-    font-size: large;
-    font-family: cursive;
+	color: black;
+	font-size: large;
+	font-family: cursive;
 }
 
 #craigslist-title {
-    font-family: times;
-    font-size: 28x;
-    color: white;
-    position: relative;
-    font: menu-item;
+	font-family: times;
+	color: white;
+	position: relative;
+	font: menu-item;
 }
 
 
@@ -147,6 +146,7 @@ textarea {
 #categories-search-button {
 	margin-top: -2px;
 }
+
 #featured-image {
 	width: 300px;
 	border-radius: 10px;

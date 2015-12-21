@@ -29,19 +29,13 @@
                         <div class="col-md-4">
 			                @Html.TextBoxFor(i => i.Listing.Header, new {id = "publish-ad-header", @class = "form-control", placeholder = "Title of a listing"})
 		                </div>
-		                <div class="col-md-4">
-			                $@Html.TextBoxFor(i => i.Listing.Price, new {@class = "form-control", placeholder = "Price", type = "number", id = "publish-ad-price"})
-                        </div>
-		                <div class="col-md-4">
-                            @Html.TextBoxFor(i => i.Listing.Price, new {@class = "form-control  ", id = "publish-ad-price", placeholder = "Price", maxlength = "4", min = "0", type = "number"})
-                        </div>
-	                </div>
-	                <div class="row">
-		                <div class="col-md-4">
+	                    <div class="col-md-4">
+		                    $@Html.TextBoxFor(i => i.Listing.Price, new {@class = "form-control  ", id = "publish-ad-price", placeholder = "Price", maxlength = "4", min = "0", type = "number"})
+	                    </div>
+						<div class="col-md-4">
 							<input type="file" name="image" class="form-control" />
-                        </div>
-                    </div>
-
+						</div>
+	                </div>
                 </div>
             </div>
         </div>
