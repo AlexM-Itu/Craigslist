@@ -22,7 +22,7 @@
 	</div>
 	@if (Model.FeaturedImageData != null)
 	{
-		<div class="row">
+		<div align="center" class="row">
 			<img src="@Url.Action("GetFeaturedImage", new {listingId = Model.Id})" id="featured-image" />
 		</div>
 	}
