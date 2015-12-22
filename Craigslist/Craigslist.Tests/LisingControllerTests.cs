@@ -17,29 +17,26 @@ namespace Craigslist.Tests
         [TestMethod]
         public void PublishTest()
         {
-            Contact contact = new Contact
-            {
-                FirstName = "Test_FName",
-                LastName = "Test_LName",
-                Phone = "9999999999",
-                Email = "test@gmail.com",
-                Id = 0,
-                Updated = null
-            };
-            Listing listing = new Listing
-            {
-                Body = "Publist test body",
-                Header = "PublishTest",
-                Price = 300,
-                CategoryId = 3,
-                Category = null,
-                ContactId = 0,
-                RemovalGuid = Guid.NewGuid().ToString(),
-                Contact = contact,
-                IsActive = false,
-                Id = 0,
-                Updated = null
-            };
+	        Listing listing = new Listing
+	        {
+		        Body = "Publist test body",
+		        Header = "PublishTest",
+		        Price = 300,
+		        CategoryId = 3,
+		        Category = null,
+		        RemovalGuid = Guid.NewGuid().ToString(),
+		        Contact = new Contact
+		        {
+			        FirstName = "Test_FName",
+			        LastName = "Test_LName",
+			        Phone = "9999999999",
+			        Email = "test@gmail.com",
+			        Updated = null
+		        },
+		        IsActive = false,
+		        Id = 0,
+		        Updated = null
+	        };
 
             listingManager.PublishListing(listing);
 
