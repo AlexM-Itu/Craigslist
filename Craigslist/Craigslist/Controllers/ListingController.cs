@@ -6,6 +6,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Craigslist.Business;
+using Craigslist.Domain.Entities;
 using Craigslist.Helpers;
 using Craigslist.Models.Listings;
 
@@ -28,7 +29,11 @@ namespace Craigslist.Controllers
 		    var categories = RetrieveAllCategories();
 		    return View(new ListingPublishingViewModel
 		    {
-			    Categories = categories
+			    Categories = categories,
+				Listing = new Listing
+				{
+					Id = -1
+				}
 		    });
 	    }
 
@@ -51,8 +56,9 @@ namespace Craigslist.Controllers
 				    image.InputStream.Read(model.Listing.FeaturedImageData, 0, image.ContentLength);
 			    }
 
-				if (model.Listing.Id == default(long)) 
-				{ 
+				if (model.Listing.Id == -1)
+				{
+					model.Listing.Id = 0;
 					model.Listing.RemovalGuid = removalGuid.ToString();
 					listingsManager.PublishListing(model.Listing);
 					emailManager.SendEmail(model.Listing.Contact.Email, ConfigurationManager.AppSettings["Email"], "Control Your Listing", string.Format(@"Hi {0}, 
