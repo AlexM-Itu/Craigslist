@@ -51,12 +51,21 @@ namespace Craigslist.Controllers
 				    image.InputStream.Read(model.Listing.FeaturedImageData, 0, image.ContentLength);
 			    }
 
-			    model.Listing.RemovalGuid = removalGuid.ToString();
-			    listingsManager.PublishListing(model.Listing);
-				emailManager.SendEmail(model.Listing.Contact.Email, ConfigurationManager.AppSettings["Email"], "Control Your Listing", string.Format(@"Hi {0}, 
+				if (model.Listing.Id == default(long)) 
+				{ 
+					model.Listing.RemovalGuid = removalGuid.ToString();
+					listingsManager.PublishListing(model.Listing);
+					emailManager.SendEmail(model.Listing.Contact.Email, ConfigurationManager.AppSettings["Email"], "Control Your Listing", string.Format(@"Hi {0}, 
 Thank you for posting your listing {1} on our website. 
 If your item is sold out or you just want to delete it for whatever reason, just click the list below: 
-http://{2}/Listing/Delete?removalId={3}", model.Listing.Contact.FirstName, model.Listing.Header, HttpContext.Request.Url.Host, removalGuid));
+http://{2}/Listing/Delete?removalId={3}
+If you want to amend your posting, click the link below:
+http://{2}/Listing/Edit?removalId={3}", model.Listing.Contact.FirstName, model.Listing.Header, HttpContext.Request.Url.Host, removalGuid));
+				}
+				else
+				{
+					listingsManager.UpdateListing(model.Listing);
+				}
 			    return RedirectToAction("List");
 		    }
 
@@ -98,6 +107,23 @@ http://{2}/Listing/Delete?removalId={3}", model.Listing.Contact.FirstName, model
 			    return new FileContentResult(listing.FeaturedImageData, listing.FeaturedImageMimeType);
 
 		    return null;
+	    }
+
+	    public ActionResult Edit(string removalId)
+	    {
+			var listing = listingsManager.GetListingsByRemovalGuid(removalId);
+		    if (listing != null)
+		    {
+				var categories = RetrieveAllCategories();
+
+			    return View("Publish", new ListingPublishingViewModel
+			    {
+				    Categories = categories,
+					Listing = listing
+			    });
+		    }
+
+		    return RedirectToAction("List");
 	    }
     }
 }

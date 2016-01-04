@@ -1,9 +1,11 @@
 ﻿@model Craigslist.Models.Listings.ListingPublishingViewModel
 @using (Html.BeginForm("Publish","Listing", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <div id="publish-ad-validation-summary">
-        @Html.ValidationSummary()
-    </div>
+	<div id="publish-ad-validation-summary">
+		@Html.ValidationSummary()
+	</div>
+	@Html.HiddenFor(i=> i.Listing.Id)
+	@Html.HiddenFor(i=> i.Listing.Contact.Id)
     <div class="container">
         <div class="jumbotron" id="add-listing-jumbotron">
             <div id="publish-ad-contact-datails">

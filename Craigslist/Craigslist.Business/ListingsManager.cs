@@ -22,6 +22,26 @@ namespace Craigslist.Business
 			}
 		}
 
+		public void UpdateListing(Listing listing)
+		{
+			using (var domain = new CraigslistDomain())
+			{
+				var currentLising = domain.Listings.FirstOrDefault(l => l.Id == listing.Id);
+				currentLising.Header = listing.Header;
+				currentLising.Body = listing.Body;
+				currentLising.CategoryId = listing.CategoryId;
+				currentLising.FeaturedImageData = listing.FeaturedImageData;
+				currentLising.FeaturedImageMimeType = listing.FeaturedImageMimeType;
+				currentLising.Price = listing.Price;
+
+				currentLising.Contact.FirstName = listing.Contact.FirstName;
+				currentLising.Contact.LastName = listing.Contact.LastName;
+				currentLising.Contact.Phone = listing.Contact.Phone;
+				currentLising.Contact.Email = listing.Contact.Email;
+				domain.SaveChanges();
+			}
+		}
+
 		public IPagedList<Listing> GetListingsByCategoryIdAndSearchQuery(int? page, long? categoryId, string q)
 		{
 			using (var domain = new CraigslistDomain())
