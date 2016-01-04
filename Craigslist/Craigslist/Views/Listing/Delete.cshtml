@@ -12,7 +12,7 @@
 			<p>Hello @Model.Contact.FirstName @Model.Contact.LastName </p>
             <p>Do you really want to delete your listing: @Model.Header? </p>
             <button type="submit" class="btn btn-info btn-lg">Yes</button>
-            <button type="button" class="btn btn-info btn-lg"  onclick="document.location('@Url.Action("List")')">No</button>
+            <button type="button" class="btn btn-info btn-lg"  onclick="document.location = '@Url.Action("List")'">No</button>
         }
 </div>
                
